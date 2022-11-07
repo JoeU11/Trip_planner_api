@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   patch "trips/:id" => "trips#update"
 
   delete "trips/:id" => "trips#destroy"
+
+  post "participants" => "participants#create"
 end

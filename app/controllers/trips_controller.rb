@@ -21,6 +21,8 @@ class TripsController < ApplicationController
     trip = Trip.new(user_id: current_user.id, name: params[:name], destination_id: params[:destination_id], start_date: start_day, end_date: end_day)
     if trip.save
       render json: trip
+      participant = Participant.new(trip_id: trip.id, user_id: current_user.id, authority: 3, accepted: true)
+      participant.save
     else
       render json: {errors: trip.errors.full_messages}, status: :unprocessable_entity
     end

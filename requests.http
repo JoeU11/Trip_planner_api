@@ -63,3 +63,15 @@ Authorization: Bearer {{user}}
 ###
 Delete http://localhost:3000/trips/2.json
 Authorization: Bearer {{user}}
+
+
+###
+Post http://localhost:3000/participants.json
+Authorization: Bearer {{user}}
+Content-Type: application/json
+
+{
+  "trip_id": 1,
+  "email": "bibblybob@bobb.com",
+  "authority": 2
+}
