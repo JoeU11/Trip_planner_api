@@ -17,3 +17,19 @@ Content-Type: application/json
   "email": "bob@bob.com",
   "password": "password"
 }
+
+###
+POST http://localhost:3000/trips.json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njc5MjU2NzV9.75U5XNws9cECkFc6WjLkLWgqdta5MoPRJ5cauxa0G1k
+Content-Type: application/json
+
+{
+  "name": "First trip",
+  "destination_id": 1,
+  "start_day": 10,
+  "start_month": 11,
+  "start_year": 2022,
+  "end_day": 15,
+  "end_month": 11,
+  "end_year": 2022
+}
