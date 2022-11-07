@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
 
   post "/trips" => "trips#create"
+
+  get "trips" => "trips#index"
+
+  get "trips/:id" => "trips#show"
 end

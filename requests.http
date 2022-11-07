@@ -1,9 +1,11 @@
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njc5MjU2NzV9.75U5XNws9cECkFc6WjLkLWgqdta5MoPRJ5cauxa0G1k
+
 POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Bob",
-  "email": "bob@bob.com",
+  "name": "Frank",
+  "email": "Frank@Frank.com",
   "password": "password",
   "password_confirmation": "password"
 }
@@ -20,7 +22,7 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3000/trips.json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njc5MjU2NzV9.75U5XNws9cECkFc6WjLkLWgqdta5MoPRJ5cauxa0G1k
+Authorization: Bearer {{user}}
 Content-Type: application/json
 
 {
@@ -33,3 +35,11 @@ Content-Type: application/json
   "end_month": 11,
   "end_year": 2022
 }
+
+###
+GET http://localhost:3000/trips.json
+Authorization: Bearer {{user}}
+
+###
+GET http://localhost:3000/trips/1.json
+Authorization: Bearer {{user}}
