@@ -25,4 +25,35 @@ class TripsController < ApplicationController
       render json: {errors: trip.errors.full_messages}, status: :unprocessable_entity
     end
   end
+
+  def update
+    trip = Trip.find_by(id: params[:id])
+    if trip.user_id == current_user.id # add or condition for participants with edit authority
+      start_day = Date.new(params[:start_year], params[:start_month], params[:start_day])
+      end_day = Date.new(params[:end_year], params[:end_month], params[:end_day])
+
+      trip.name = params[:name] || trip.name
+      trip.destination_id = params[:destination_id] || trip.destination_id
+      trip.start_date = start_day || trip.start_date
+      trip.end_date = end_day || trip.end_date
+
+      if trip.save
+        render json: trip
+      else
+        render json: {errors: trip.errors.full_messages}, status: :unprocessable_entity
+      end
+    else
+      render json: {error: "you do not have permission to edit this trip"}, status: :unauthorized
+    end
+  end
+
+  def destroy
+    trip = Trip.find_by(id: params[:id])
+    if trip.user_id == current_user.id # add or condition for participants with authorization
+      trip.delete
+      render json: {message: "trip deleted"}
+    else
+      render json: {error: "you do not have permission to delete this trip"}, status: :unauthorized
+    end
+  end
 end

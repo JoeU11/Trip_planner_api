@@ -37,9 +37,29 @@ Content-Type: application/json
 }
 
 ###
+Patch http://localhost:3000/trips/3.json
+Authorization: Bearer {{user}}
+Content-Type: application/json
+
+{
+  "name": "First trip",
+  "destination_id": 1,
+  "start_day": 17,
+  "start_month": 11,
+  "start_year": 2022,
+  "end_day": 25,
+  "end_month": 11,
+  "end_year": 2022
+}
+
+###
 GET http://localhost:3000/trips.json
 Authorization: Bearer {{user}}
 
 ###
 GET http://localhost:3000/trips/1.json
+Authorization: Bearer {{user}}
+
+###
+Delete http://localhost:3000/trips/2.json
 Authorization: Bearer {{user}}
