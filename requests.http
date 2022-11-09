@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Njc5MjU2NzV9.75U5XNws9cECkFc6WjLkLWgqdta5MoPRJ5cauxa0G1k
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgxMDg0NzB9.NGmFUOM4ruyQDzfrSMeSPXh4BHlScowdhvmrvlokStA
 
 POST http://localhost:3000/users.json
 Content-Type: application/json
@@ -16,7 +16,7 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "bob@bob.com",
+  "email": "Frank@Frank.com",
   "password": "password"
 }
 
@@ -75,3 +75,29 @@ Content-Type: application/json
   "email": "bibblybob@bobb.com",
   "authority": 2
 }
+
+
+###
+patch http://localhost:3000/participants/3.json
+Authorization: Bearer {{user}}
+Content-Type: application/json
+
+{
+  "authority": 1,
+  "accepted": true
+}
+
+###
+delete http://localhost:3000/participants/3.json
+Authorization: Bearer {{user}}
+
+
+###
+get http://localhost:3000/participants.json
+Authorization: Bearer {{user}}
+Content-Type: application/json
+
+{
+  "trip_id": 1
+}
+

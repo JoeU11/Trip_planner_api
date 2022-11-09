@@ -19,4 +19,10 @@ Rails.application.routes.draw do
   delete "trips/:id" => "trips#destroy"
 
   post "participants" => "participants#create"
+
+  patch "participants/:id" => "participants#update"
+
+  delete "participants/:id" => "participants#destroy"
+
+  get "participants" => "participants#index"
 end
