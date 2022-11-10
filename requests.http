@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgxMDg0NzB9.NGmFUOM4ruyQDzfrSMeSPXh4BHlScowdhvmrvlokStA
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgxODI5MzB9.VQVUIhhZXTtsZcuaIt5WaCh_NnjZp2WolMlIj83vqjI
 
 POST http://localhost:3000/users.json
 Content-Type: application/json

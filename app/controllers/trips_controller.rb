@@ -2,7 +2,9 @@ class TripsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    trips = Trip.where(user_id: current_user.id)
+    trips = [] 
+    participants = Participant.where(user_id: current_user.id, accepted: true)
+    participants.each { |participant| trips.push(participant.trip)}
     render json: trips
   end
 
