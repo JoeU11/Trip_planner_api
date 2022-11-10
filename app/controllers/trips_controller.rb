@@ -10,7 +10,8 @@ class TripsController < ApplicationController
 
   def show
     trip = Trip.find_by(id: params[:id])
-    if trip.user_id == current_user.id # add or condition for participants
+    users_trips = Participant.where(user_id: current_user.id).pluck(:trip_id)
+    if trip.user_id == current_user.id || users_trips.include?(trip.id)
       render json: trip
     else
       render json: {error: "you do not have permission to view this trip"}, status: :unauthorized
